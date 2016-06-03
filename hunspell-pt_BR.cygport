@@ -1,0 +1,25 @@
+NAME="hunspell-pt_BR"
+VERSION=20130317
+RELEASE=1
+CATEGORY="Text"
+SUMMARY="Brazilian Portuguese dictionary for Hunspell"
+DESCRIPTION="Hunspell is a spell checker and morphological analyzer library and
+program designed for languages with rich morphology and complex compounding or
+character encoding.
+This package provides a Brazilian Portuguese dictionary for Hunspell."
+HOMEPAGE="http://pt-br.libreoffice.org/"
+#SRC_URI="http://pt-br.libreoffice.org/assets/ptBR${VERSION#0.}AOC.zip"
+md5sum=fbfe2eee6aa8072b5bd00a528bd37a40
+SRC_URI="http://pkgs.fedoraproject.org/repo/pkgs/hunspell-pt/ptBR${VERSION#0.}AOC.zip/${md5sum}/ptBR${VERSION#0.}AOC.zip"
+SRC_DIR=.
+
+ARCH=noarch
+
+src_compile() { :; }
+
+src_install() {
+	cd ${S}
+	insinto /usr/share/myspell
+	doins *.aff *.dic
+	dodoc *.txt
+}
